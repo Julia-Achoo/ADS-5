@@ -5,32 +5,31 @@
 
 template<typename T, int size>
 class TStack {
-private:
-T arr[size];
-int f;
-public:
-TStack(): f(-1) {}
-void push(T value) {
-if (!isFull())
-arr[++f] = value;
-else
-throw std::string("total");
-}
-T get() const {
-return arr[f];
-}
-T pop() {
-if (isEmpty())
-throw std::string("null");
-else
-return arr[f--];
-}
-bool isEmpty() const {
-return f == -1;
-}
-bool isFull() const {
-return f == size - 1;
-}
+  private:
+    T arr[100];
+    int top;
+  public:
+    TStack(): top(-1) {}
+    void push(T value) {
+      if (!isFull())
+        arr[++top] = value;
+      else
+        throw std::string("Full");
+    }
+    T get() const {
+      return arr[top];
+    }
+    T pop() {
+      if (isEmpty())
+        throw std::string("Empty");
+      else
+        return arr[top--];
+    }
+    bool isEmpty() const {
+      return top == -1;
+    }
+    bool isFull() const {
+      return top == size - 1;
+    }
 };
-
 #endif  // INCLUDE_TSTACK_H_
