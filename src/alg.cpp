@@ -6,10 +6,10 @@ bool isDigit(char b) {
   return (b >= '0' && b <= '9');
 }
 bool isOperator(char z) {
-  return (z == '+'  z == '-'  z == '*'  z == '/'   z == '('  z == ')');
+  return (z == '+' ||  z == '-' || z == '*' || z == '/' ||  z == '(' || z == ')');
 }
 int prioritet(char v) {
-  if (v == '+'  v == '-')
+  if (v == '+' || v == '-')
   return 1;
   if (v == '*' || v == '/')
   return 2;
